@@ -14,12 +14,11 @@ public class Main {
                     new Memory("GOODRAM 8G", "GoodRam", "ADG006", 2000, 4096),
                     new HardDrive("SAMSUNG 1TB", "Samsung", "GV05", 1024, HardDiskType.MVME)
             );
-            computer.getProcessor().overclock(300);
+            computer.getProcessor().overclock(200);
             System.out.println(computer.getProcessor().toString());
-            computer.getMemory().overclock(800);
+            computer.getMemory().overclock(500);
             System.out.println(computer.getMemory().toString());
             System.out.println(computer.getHardDrive().toString());
-            computer.getHardDrive().getTiming();
         } catch (CpuOverheatingException | MemoryOverheatingException | FunctionUnavailableException e) {
             System.err.println(e.getMessage());
         }

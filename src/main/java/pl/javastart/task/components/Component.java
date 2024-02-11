@@ -8,8 +8,8 @@ public abstract class Component {
     private String model;
     private String manufacturer;
     private String serialNo;
-    private int timing;
-    private int temperature;
+    protected int timing;
+    protected int temperature;
 
     public Component(String model, String manufacturer, String serialNo, int timing) {
         this.model = model;
@@ -52,15 +52,8 @@ public abstract class Component {
         return timing;
     }
 
-    public void setTiming(int timing) {
-        this.timing = timing;
-    }
-
     public int getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
-        this.temperature = temperature;
-    }
 }

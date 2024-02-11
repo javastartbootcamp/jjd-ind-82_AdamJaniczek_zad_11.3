@@ -11,18 +11,18 @@ public class Memory extends Component implements Overclockable {
         this.capacity = capacity;
     }
 
-    private void checkMemoryTemperature() {
-        if (getTemperature() >= MAX_TEMPERATURE) {
+    private void checkMemoryTemperature(int temp) {
+        if (temperature + temp >= MAX_TEMPERATURE) {
             throw new MemoryOverheatingException("The Memory temperature is too high, max value is " + MAX_TEMPERATURE);
         }
     }
 
     @Override
     public void overclock(int mhz) {
-        checkMemoryTemperature();
-        setTiming(getTiming() + mhz);
-        setTemperature(getTemperature() + ((mhz / TIMING_OVERLOCK) * CPU_TEMPERATURE_OVERLOCK));
-        checkMemoryTemperature();
+        int overlocedTemperature = (mhz / TIMING_OVERLOCK) * MEMORY_TEMPERATURE_OVERLOCK;
+        checkMemoryTemperature(overlocedTemperature);
+        timing += mhz;
+        temperature += overlocedTemperature;
         System.out.println("Pomyślnie podkręcono pamięć RAM o " + mhz + " MHz, aktualna temperatura " + getTemperature());
     }
 

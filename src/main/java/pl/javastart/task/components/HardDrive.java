@@ -29,16 +29,6 @@ public class HardDrive extends Component {
     }
 
     @Override
-    public void setTiming(int timing) {
-        throw new FunctionUnavailableException("The timing boost function is not available in hard drive");
-    }
-
-    @Override
-    public int getTiming() {
-        throw new FunctionUnavailableException("The timing boost function is not available in hard drive");
-    }
-
-    @Override
     public String toString() {
         return "HardDrive{" +
                 "model='" + getModel() + '\'' +
